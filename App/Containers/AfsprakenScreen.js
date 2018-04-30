@@ -17,17 +17,15 @@ class AfsprakenScreen extends Component {
   render () {
     return (
 
-        <Container>
+      <Container>
 
         <Content style={{ padding: 5}}>
 
-          <AfsprakenLijst/>
+          <AfsprakenLijst  navigation={this.props.navigation} />
 
         </Content>
         
-
       </Container>
-
 
     )
   }

@@ -36,6 +36,7 @@ const create = (baseURL = 'https://fluxit.be/react/reportmanager/wp-json/') => {
   //
 
   const getAfspraken = () => api.get('wp/v2/afspraak?per_page=100', {})
+  const getRapporten = () => api.get('wp/v2/rapport?per_page=100', {})
 
   // ------
   // STEP 3
@@ -51,7 +52,8 @@ const create = (baseURL = 'https://fluxit.be/react/reportmanager/wp-json/') => {
   //
   return {
     // a list of the API functions from step 2
-    getAfspraken
+    getAfspraken,
+    getRapporten,
   }
 }
 

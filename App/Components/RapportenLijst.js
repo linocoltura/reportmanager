@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 import { View, Text, FlatList, Platform, TouchableOpacity } from 'react-native';
-import styles from './Styles/AfsprakenLijstStyle';
+import styles from './Styles/RapportenLijstStyle';
 import API from '../Services/Api';
 const api = API.create();
 
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Card, CardItem, List, ListItem, Thumbnail } from 'native-base';
 
 
-export default class AfsprakenLijst extends Component {
+export default class RapportenLijst extends Component {
+
+  constructor(){
+    super();
+  }
 
   renderSeparator = () => {
     return (
@@ -23,16 +27,16 @@ export default class AfsprakenLijst extends Component {
   };
 
   state = {
-    afspraken: []
+    rapporten: []
   };
 
   componentDidMount(){
-    api.getAfspraken()
+    api.getRapporten()
       .then((response) => {
         this.setState({
-          afspraken: response.data
+          rapporten: response.data
         });
-        console.log(this.state.afspraken);
+        console.log(this.state.rapporten);
         
       });
   }
@@ -44,15 +48,18 @@ export default class AfsprakenLijst extends Component {
           <FlatList 
           keyExtractor={(item) => item.slug} 
           ItemSeparatorComponent={this.renderSeparator} 
-          data={this.state.afspraken} 
-          renderItem={({item}) => <TouchableOpacity onPress={() => this.props.navigation.navigate('Detail', item)}><CardItem key={item.id}>
+          data={this.state.rapporten} renderItem={({item}) => <TouchableOpacity onPress={() => this.props.navigation.navigate('Detail')}><CardItem key={item.id}>
           
             <Body><Text>{item.title.rendered}</Text></Body>
             <Right><Icon name={Platform.OS === 'ios' ? 'ios-arrow-forward-outline' : 'md-arrow-dropright'} style={{ marginLeft: 0, }} /></Right>
             
-          </CardItem></TouchableOpacity>}/>
+          </CardItem></TouchableOpacity>}
+          
+          />
         </Card>
       </View>
     )
   }
 }
+
+

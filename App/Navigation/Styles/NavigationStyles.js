@@ -12,6 +12,7 @@ export default StyleSheet.create({
     // color: Colors.charcoal
   },
   indicatorStyle: {
-    backgroundColor: 'lightblue',
+    backgroundColor: '#66dbff',
+    height: 3,
   }
 })

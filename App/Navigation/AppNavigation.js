@@ -1,4 +1,6 @@
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation'
+import RapportDetailScreen from '../Containers/RapportDetailScreen'
+import AfspraakDetailScreen from '../Containers/AfspraakDetailScreen'
 // import View from '../Containers/View'
 import RapportenScreen from '../Containers/RapportenScreen'
 import AfsprakenScreen from '../Containers/AfsprakenScreen'
@@ -6,24 +8,31 @@ import LaunchScreen from '../Containers/LaunchScreen'
 
 import styles from './Styles/NavigationStyles'
 
-// // Manifest of possible screens
-// const PrimaryNav = StackNavigator({
-//   // View: { screen: View },
-//   RapportenScreen: { screen: RapportenScreen },
-//   AfsprakenScreen: { screen: AfsprakenScreen },
-//   // LaunchScreen: { screen: LaunchScreen }
-// }, {
-//   // Default config for all screens
-//   headerMode: 'none',
-//   initialRouteName: 'AfsprakenScreen',
-//   navigationOptions: {
-//     headerStyle: styles.header
-//   }
-// })
+
+// RapportDetailScreen: { screen: RapportDetailScreen }
+// AfspraakDetailScreen: { screen: AfspraakDetailScreen }
+
+  const AfsprakenStack = StackNavigator({
+    Overzicht: { screen: AfsprakenScreen },
+    Detail: { screen: AfspraakDetailScreen },
+  },{
+    navigationOptions: {
+      header: null,
+    }
+  });
+
+  const RapportenStack = StackNavigator({
+    Overzicht: { screen: RapportenScreen },
+    Detail: { screen: RapportDetailScreen },
+  },{
+    navigationOptions: {
+      header: null,
+    }
+  });
 
 export default TabNavigator({
-  Afspraken: { screen: AfsprakenScreen },
-  Rapporten: { screen: RapportenScreen },
+  Afspraken: { screen: AfsprakenStack },
+  Rapporten: { screen: RapportenStack },
 }, {
   tabBarOptions: {
     style: styles.tabBar,
