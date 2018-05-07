@@ -1,4 +1,4 @@
-package com.report;
+package com.reportmanager;
 
 import android.app.Application;
 

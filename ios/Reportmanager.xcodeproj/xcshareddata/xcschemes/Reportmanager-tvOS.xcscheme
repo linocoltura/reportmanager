@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "Report-tvOS.app"
-               BlueprintName = "Report-tvOS"
-               ReferencedContainer = "container:Report.xcodeproj">
+               BuildableName = "Reportmanager-tvOS.app"
+               BlueprintName = "Reportmanager-tvOS"
+               ReferencedContainer = "container:Reportmanager.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "Report-tvOSTests.xctest"
-               BlueprintName = "Report-tvOSTests"
-               ReferencedContainer = "container:Report.xcodeproj">
+               BuildableName = "Reportmanager-tvOSTests.xctest"
+               BlueprintName = "Reportmanager-tvOSTests"
+               ReferencedContainer = "container:Reportmanager.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "Report-tvOSTests.xctest"
-               BlueprintName = "Report-tvOSTests"
-               ReferencedContainer = "container:Report.xcodeproj">
+               BuildableName = "Reportmanager-tvOSTests.xctest"
+               BlueprintName = "Reportmanager-tvOSTests"
+               ReferencedContainer = "container:Reportmanager.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "Report-tvOS.app"
-            BlueprintName = "Report-tvOS"
-            ReferencedContainer = "container:Report.xcodeproj">
+            BuildableName = "Reportmanager-tvOS.app"
+            BlueprintName = "Reportmanager-tvOS"
+            ReferencedContainer = "container:Reportmanager.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "Report-tvOS.app"
-            BlueprintName = "Report-tvOS"
-            ReferencedContainer = "container:Report.xcodeproj">
+            BuildableName = "Reportmanager-tvOS.app"
+            BlueprintName = "Reportmanager-tvOS"
+            ReferencedContainer = "container:Reportmanager.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -113,9 +113,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "Report-tvOS.app"
-            BlueprintName = "Report-tvOS"
-            ReferencedContainer = "container:Report.xcodeproj">
+            BuildableName = "Reportmanager-tvOS.app"
+            BlueprintName = "Reportmanager-tvOS"
+            ReferencedContainer = "container:Reportmanager.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
