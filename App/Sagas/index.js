@@ -3,6 +3,8 @@ import API from '../Services/Api'
 import FixtureAPI from '../Services/FixtureApi'
 import DebugConfig from '../Config/DebugConfig'
 
+console.disableYellowBox = true;
+
 /* ------------- Types ------------- */
 
 import { StartupTypes } from '../Redux/StartupRedux'

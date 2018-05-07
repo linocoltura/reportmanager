@@ -1,8 +1,9 @@
 // a library to wrap and simplify api calls
 import apisauce from 'apisauce'
+import env from '../../env'
 
 // our "constructor"
-const create = (baseURL = 'https://fluxit.be/react/reportmanager/wp-json/') => {
+const create = (baseURL = env.WP_REST_API_BASE_URL) => {
   // ------
   // STEP 1
   // ------
