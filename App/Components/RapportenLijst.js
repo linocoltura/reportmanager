@@ -48,7 +48,7 @@ export default class RapportenLijst extends Component {
             </Body>
             
           </CardItem></TouchableOpacity>
-}/>
+} keyExtractor={(item, index) => index.toString()}/>
         </Card>
       </View>
     )

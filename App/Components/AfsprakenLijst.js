@@ -53,7 +53,7 @@ export default class AfsprakenLijst extends Component {
             </Body>
             
           </CardItem></TouchableOpacity>
-          }/>
+          } keyExtractor={(item, index) => index.toString()}/>
         </Card>
       </View>
     )

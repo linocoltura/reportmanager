@@ -252,7 +252,7 @@ class AfspraakDetailScreen extends Component {
           style={{marginTop: 5}}
           renderItem={({item}) =>
             <Image resizeMode={'cover'} source={{uri: item.url}} style={{height: 150, width: 200}}/>
-        }/>
+        } keyExtractor={(item, index) => index.toString()}/>
       </View>
 
     </CardItem>
