@@ -22,7 +22,7 @@ class RapportenScreen extends Component {
     super();
 
     this.state = {
-      Rapporten: [
+      rapporten: [
         {title:{rendered:''},acf:{datum:""}},
         {title:{rendered:''},acf:{datum:""}},
         {title:{rendered:''},acf:{datum:""}},
@@ -36,7 +36,7 @@ class RapportenScreen extends Component {
     api.getRapporten()
       .then((response) => {
         this.setState({
-          Rapporten: response.data,
+          rapporten: response.data,
           isFetched: true,
         });
         
@@ -46,7 +46,7 @@ class RapportenScreen extends Component {
 
   _onRefresh() {
     this.setState({
-      Rapporten: [
+      rapporten: [
         {title:{rendered:''},acf:{datum:""}},
         {title:{rendered:''},acf:{datum:""}},
         {title:{rendered:''},acf:{datum:""}},
@@ -59,7 +59,7 @@ class RapportenScreen extends Component {
       
       this.setState({
         refreshing: false,
-        Rapporten: response.data,
+        rapporten: response.data,
         isFetched: true,
       });
       
@@ -86,7 +86,7 @@ class RapportenScreen extends Component {
 
         
 
-          <RapportenLijst isFetched={this.state.isFetched} Rapporten={this.state.Rapporten} ref="child" navigation={this.props.navigation} />
+          <RapportenLijst isFetched={this.state.isFetched} rapporten={this.state.rapporten} ref="child" navigation={this.props.navigation} />
 
         </Content>
 

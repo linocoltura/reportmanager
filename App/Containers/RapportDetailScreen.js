@@ -11,9 +11,9 @@ import SignatureCapture from 'react-native-signature-capture';
 
 
 // Styles
-import styles from './Styles/AfspraakDetailScreenStyle';
+import styles from './Styles/RapportDetailScreenStyle';
 
-class AfspraakDetailScreen extends Component {
+class RapportDetailScreen extends Component {
 
   constructor(){
 
@@ -162,6 +162,8 @@ class AfspraakDetailScreen extends Component {
 
   render () {
     const { params } = this.props.navigation.state;
+    console.log(params);
+    
 
       
     const styles = {
@@ -208,19 +210,19 @@ class AfspraakDetailScreen extends Component {
       <View style={styles.customerStyle}>
         <Icon style={styles.customerIconStyle} name="md-people" />
         <Text style={{fontSize:12}}>
-        { params.acf.afspraak[0].acf.klant[0].post_title }
+        { params.acf.afspraakrapport[0].acf.klant[0].post_title }
         </Text>
       </View>
       <View style={styles.customerStyle}>
         <Icon style={styles.customerIconStyle} name="md-locate" />
         <Text style={{fontSize:12}}>
-          { params.acf.afspraak[0].acf.adres.address }
+          { params.acf.afspraakrapport[0].acf.adres.address }
         </Text>
       </View>
       <View style={styles.customerStyle}>
         <Icon style={styles.customerIconStyle} name="md-calendar" />
         <Text style={{fontSize:12}}>
-          { this.toDateTime(params.acf.afspraak[0].acf.datum) }
+          { this.toDateTime(params.acf.afspraakrapport[0].acf.datum) }
         </Text>
       </View>
     </CardItem>
@@ -286,4 +288,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AfspraakDetailScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(RapportDetailScreen)

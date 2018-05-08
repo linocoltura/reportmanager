@@ -1,4 +1,5 @@
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation'
+import NieuwRapportScreen from '../Containers/NieuwRapportScreen'
 import RapportDetailScreen from '../Containers/RapportDetailScreen'
 import AfspraakDetailScreen from '../Containers/AfspraakDetailScreen'
 // import View from '../Containers/View'
@@ -15,6 +16,7 @@ import styles from './Styles/NavigationStyles'
   const AfsprakenStack = StackNavigator({
     Overzicht: { screen: AfsprakenScreen },
     Detail: { screen: AfspraakDetailScreen },
+    NieuwRapport: { screen: NieuwRapportScreen },
   },{
     navigationOptions: {
       header: null,

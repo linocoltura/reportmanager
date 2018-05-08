@@ -190,7 +190,7 @@ class AfspraakDetailScreen extends Component {
   containerStyle={{ }}
   style={{ backgroundColor: '#2196F3' }}
   position="bottomRight"
-  onPress={() => this.setState({ active: !this.state.active })}>
+  onPress={() => this.props.navigation.navigate('NieuwRapport', params)}>
   <Icon name="md-add" />
 </Fab>
 
