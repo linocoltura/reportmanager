@@ -15,14 +15,22 @@ import styles from './Styles/RapportDetailScreenStyle';
 
 class RapportDetailScreen extends Component {
 
-  constructor(){
+  constructor(props){
 
-    super();
+    super(props);
 
     this.state = {
       isHidden: true,
       currentSignature: false,
     }
+
+    console.log("this.props =");
+    console.log(this.props);
+    
+    console.log("this.props.navigation.state =");
+    const { params } = this.props.navigation.state;
+    console.log(params);
+
   }
 
 

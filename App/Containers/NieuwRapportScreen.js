@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { ScrollView, Text, KeyboardAvoidingView, View } from 'react-native';
 import { connect } from 'react-redux';
+
+import { NavigationActions } from 'react-navigation';
 import API from '../Services/Api';
 const api = API.create();
 
 
-import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Card, CardItem, List, ListItem, Thumbnail, Fab, Textarea, Form, Item, Input } from 'native-base';
+import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Card, CardItem, List, ListItem, Thumbnail, Fab, Textarea, Form, Item, Input, Toast } from 'native-base';
 
 // Styles
 import styles from './Styles/NieuwRapportScreenStyle'
@@ -28,38 +30,55 @@ class NieuwRapportScreen extends Component {
 
 
 
-  // submitRapport = () => {
-  //   // future: need type toggle (Suggestie/Probleem)
 
-  //     api.nieuwRapport({
-  //       notities: this.state.notities,
-  //       beschrijving: description,
-  //       adres: address,
-  //       coords_lat: newMarker.latitude,
-  //       coords_lon: newMarker.longitude,
-  //       image: imageSource,
-  //     }).then(() => {
-  //       this.abortAddProblem();
-  //       this.getLocations();
-  //       Toast.show({
-  //         text: 'Suggestie toegevoegd',
-  //         position: 'top',
-  //         buttonText: 'OK',
-  //         duration: 5000,
-  //       });
-  //     })
-  //   } else {
-  //     // toast shows below modal: https://github.com/GeekyAnts/NativeBase/issues/985
-  //     /* Toast.show({
-  //       text: 'Vul aub alle velden in',
-  //       position: 'top',
-  //       buttonText: 'OK',
-  //       duration: 7000,
-  //       type: 'danger',
-  //     }); */
-  //     this.setState({ showErrors: true });
-  //   }
-  // }
+  submitRapport = () => {
+
+    const { params } = this.props.navigation.state;
+
+    console.log(params);
+    
+
+    const propsToPassAlong = {
+      "title": {
+        "rendered": this.state.titel,
+      },
+      "acf":{
+        "notities": this.state.notities,
+        "afspraakrapport":[
+          {
+            "acf":{
+              "klant":[
+                {
+                  "post_title": params.acf.klant[0].post_title,
+                }
+              ],
+              "datum": params.acf.datum,
+              "adres":{
+                "address": params.acf.adres.address,
+              }
+            }
+          }
+        ]
+      }
+    }
+
+    api.putRapport({
+      titel: this.state.titel,
+      notities: this.state.notities,
+      afspraakrapport: params.id,
+    }).then(() => {
+
+      const navigateAction = NavigationActions.navigate({
+        routeName: 'Rapporten',
+        // navigate can have a nested navigate action that will be run inside the child router
+        action: NavigationActions.navigate({ routeName: 'DetailRapport', params: propsToPassAlong }),
+      });
+      this.props.navigation.dispatch(navigateAction);
+
+
+    })
+  }
+  
 
 
 
@@ -114,7 +133,7 @@ class NieuwRapportScreen extends Component {
                   <Item style={{flex:1, width: '100%', marginLeft: 0}}>
                     <Textarea onChangeText={(notities) => this.setState({notities})} style={{width:'100%', borderColor:'#e8e8e8', fontSize:15}} rowSpan={5} bordered placeholder="Notities" /> 
                   </Item>
-                  <Button transparent primary>
+                  <Button onPress={() => this.submitRapport()} transparent primary>
                     <Body><Text style={{color:'#2196F3'}}>Opslaan</Text></Body>
                   </Button>
                 </Form>

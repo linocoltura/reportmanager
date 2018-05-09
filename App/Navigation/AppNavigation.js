@@ -25,7 +25,7 @@ import styles from './Styles/NavigationStyles'
 
   const RapportenStack = StackNavigator({
     Overzicht: { screen: RapportenScreen },
-    Detail: { screen: RapportDetailScreen },
+    DetailRapport: { screen: RapportDetailScreen },
   },{
     navigationOptions: {
       header: null,

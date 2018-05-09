@@ -15,7 +15,8 @@ const create = (baseURL = env.WP_REST_API_BASE_URL) => {
     baseURL,
     // here are some default headers
     headers: {
-      'Cache-Control': 'no-cache'
+      'Cache-Control': 'no-cache',
+      'Authorization': env.wpApiToken,
     },
     // 10 second timeout...
     timeout: 10000
@@ -39,6 +40,39 @@ const create = (baseURL = env.WP_REST_API_BASE_URL) => {
   const getAfspraken = () => api.get('wp/v2/afspraak?per_page=100', {})
   const getRapporten = () => api.get('wp/v2/rapport?per_page=100', {})
 
+
+  const putRapport = (rapport) => {
+    return new Promise((resolve) => {
+      /*if (suggestie.image) {
+        uploadImage(suggestie.image, (remoteImageURL) => {
+          createPostWithACF(suggestie, remoteImageURL, () => {
+            resolve();
+          });
+        });
+      } else*/ {
+        createPostWithACF(rapport, null, () => {
+          resolve();
+        });
+      }
+    });
+  }
+
+  const createPostWithACF = (data, remoteImageURL, next) => {
+    api.post('wp/v2/rapport', { title: data.titel, status: 'publish' })
+      .then((response) => {
+        if (response.ok) {
+          // use the id we got back to edit it to include the custom fields
+          api.post(`/acf/v3/rapport/${response.data.id}`, { fields: { ...data, fotos: remoteImageURL } })
+            .then((responseAcf) => {
+              next();
+            })
+        } else {
+          // future: show user an error message?
+          next();
+        }
+      });
+  }
+
   // ------
   // STEP 3
   // ------
@@ -53,6 +87,7 @@ const create = (baseURL = env.WP_REST_API_BASE_URL) => {
   //
   return {
     // a list of the API functions from step 2
+    putRapport,
     getAfspraken,
     getRapporten,
   }

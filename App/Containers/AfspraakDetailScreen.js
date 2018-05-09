@@ -17,8 +17,8 @@ import styles from './Styles/AfspraakDetailScreenStyle';
 
 class AfspraakDetailScreen extends Component {
 
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
       active: false,
     }

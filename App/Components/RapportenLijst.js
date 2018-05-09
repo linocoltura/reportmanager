@@ -39,7 +39,7 @@ export default class RapportenLijst extends Component {
           <FlatList 
           ItemSeparatorComponent={this.renderSeparator} 
           data={this.props.rapporten} 
-          renderItem={({item}) => <TouchableOpacity disabled={!this.props.isFetched} key={item.id} onPress={() => this.props.navigation.navigate('Detail', item)}><CardItem>
+          renderItem={({item}) => <TouchableOpacity disabled={!this.props.isFetched} key={item.id} onPress={() => this.props.navigation.navigate('DetailRapport', item)}><CardItem>
             <Body style={{flexDirection:'row', justifyContent:'space-between', alignItems: 'center'}}><ShimmerPlaceHolder colorShimmer={['#f7f7f7', '#e8e8e8', '#f7f7f7']} style={{height:20}} autoRun={true} visible={this.props.isFetched}>
             
             <Text style={{fontSize:15, color: '#595959'}}>{item.title.rendered}</Text></ShimmerPlaceHolder>
