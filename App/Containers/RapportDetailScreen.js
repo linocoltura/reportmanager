@@ -218,19 +218,19 @@ class RapportDetailScreen extends Component {
       <View style={styles.customerStyle}>
         <Icon style={styles.customerIconStyle} name="md-people" />
         <Text style={{fontSize:12}}>
-        { params.acf.afspraakrapport[0].acf.klant[0].post_title }
+        { params.acf.afspraak[0].acf.klant[0].post_title }
         </Text>
       </View>
       <View style={styles.customerStyle}>
         <Icon style={styles.customerIconStyle} name="md-locate" />
         <Text style={{fontSize:12}}>
-          { params.acf.afspraakrapport[0].acf.adres.address }
+          { params.acf.afspraak[0].acf.adres.address }
         </Text>
       </View>
       <View style={styles.customerStyle}>
         <Icon style={styles.customerIconStyle} name="md-calendar" />
         <Text style={{fontSize:12}}>
-          { this.toDateTime(params.acf.afspraakrapport[0].acf.datum) }
+          { this.toDateTime(params.acf.afspraak[0].acf.datum) }
         </Text>
       </View>
     </CardItem>

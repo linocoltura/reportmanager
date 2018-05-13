@@ -10,6 +10,9 @@ import { format } from 'date-fns';
 
 import Communications from 'react-native-communications';
 
+import { NavigationActions } from 'react-navigation';
+
+
 
 
 // Styles
@@ -55,6 +58,71 @@ class AfspraakDetailScreen extends Component {
 
   toDateTime(date){
     return format(date, 'dddd DD MMMM HH:mm');
+  }
+
+goToReport = () => {
+  const { params } = this.props.navigation.state;
+
+  // console.log(params);
+
+  const propsToPassAlong = {
+    "title": {
+      "rendered": params.acf.rapport[0].post_title,
+    },
+    "acf":{
+      "notities": params.acf.rapport[0].acf.notities,
+      "afspraak":[
+        {
+          "acf":{
+            "klant":[
+              {
+                "post_title": params.acf.klant[0].post_title,
+              }
+            ],
+            "datum": params.acf.datum,
+            "adres":{
+              "address": params.acf.adres.address,
+            }
+          }
+        }
+      ]
+    }
+  }
+
+    const navigateAction = NavigationActions.navigate({
+      routeName: 'Rapporten',
+      // navigate can have a nested navigate action that will be run inside the child router
+      action: NavigationActions.navigate({ routeName: 'DetailRapport', params: propsToPassAlong }),
+    });
+    this.props.navigation.dispatch(navigateAction);
+
+}
+
+
+  renderFab = () => {
+
+    const { params } = this.props.navigation.state;
+
+    if (!params.acf.rapport) {
+      return(
+        <Fab
+          containerStyle={{ }}
+          style={{ backgroundColor: '#2196F3' }}
+          position="bottomRight"
+          onPress={() => this.props.navigation.navigate('NieuwRapport', params)}>
+          <Icon name="md-add" />
+        </Fab>
+      )
+    } else return(
+      <Fab
+        containerStyle={{ }}
+        style={{ backgroundColor: '#2196F3' }}
+        position="bottomRight"
+        onPress={() => this.goToReport()}>
+        <Icon name="md-eye" />
+      </Fab>
+    )
+
   }
 
 
@@ -186,13 +254,7 @@ class AfspraakDetailScreen extends Component {
 
 </Content>
 
-<Fab
-  containerStyle={{ }}
-  style={{ backgroundColor: '#2196F3' }}
-  position="bottomRight"
-  onPress={() => this.props.navigation.navigate('NieuwRapport', params)}>
-  <Icon name="md-add" />
-</Fab>
+{this.renderFab()}
 
 
 </Container>

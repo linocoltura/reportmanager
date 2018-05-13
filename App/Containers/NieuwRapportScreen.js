@@ -44,7 +44,7 @@ class NieuwRapportScreen extends Component {
       },
       "acf":{
         "notities": this.state.notities,
-        "afspraakrapport":[
+        "afspraak":[
           {
             "acf":{
               "klant":[
@@ -65,7 +65,7 @@ class NieuwRapportScreen extends Component {
     api.putRapport({
       titel: this.state.titel,
       notities: this.state.notities,
-      afspraakrapport: params.id,
+      afspraak: params.id,
     }).then(() => {
 
       const navigateAction = NavigationActions.navigate({
@@ -119,8 +119,8 @@ class NieuwRapportScreen extends Component {
             <CardItem header button onPress={() =>this.props.navigation.goBack()}>
             <Icon style={{color:'#2196F3', fontSize: 20, marginTop: 1,}} name="arrow-back" />
             <View style={{flexDirection: 'column'}}>
-              <Title style={{color:'#2196F3'}}>
-                <Text> Nieuw rapport </Text>
+              <Title style={{color:'#2196F3', textAlign:'left', marginLeft: 3}}>
+                <Text style={{textAlign:'left'}}> Nieuw rapport </Text>
               </Title>
               <Text style={{marginLeft:8, fontStyle: 'italic', color: '#595959'}}>{params.title.rendered}</Text>
               </View>
